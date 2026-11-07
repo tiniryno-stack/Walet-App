@@ -1,0 +1,955 @@
+{
+  "version": 2,
+  "activeTake": "take-1",
+  "looks": {
+    "look-dark": {
+      "name": "Dark \u00b7 blue band",
+      "style": {
+        "cardBg": "#22262D",
+        "band": {
+          "mode": "color",
+          "color": "#2D6BE0",
+          "imageId": null,
+          "logoImageId": null,
+          "logoText": "p",
+          "logoColor": "#FFFFFF"
+        },
+        "labelColor": "#5093F6",
+        "valueColor": "#FFFFFF",
+        "footer": {
+          "mode": "nfc",
+          "color": "#BDBEC0"
+        },
+        "appIcon": {
+          "visible": true,
+          "imageId": null
+        },
+        "headerLogo": {
+          "imageId": null,
+          "text": "passline"
+        },
+        "elements": {}
+      }
+    },
+    "look-lavender": {
+      "name": "Lavender \u00b7 black band",
+      "style": {
+        "cardBg": "#E9CBFB",
+        "band": {
+          "mode": "color",
+          "color": "#000000",
+          "imageId": null,
+          "logoImageId": null,
+          "logoColor": "#E9CBFB",
+          "logoText": "p"
+        },
+        "labelColor": "#1C1C1E",
+        "valueColor": "#1C1C1E",
+        "footer": {
+          "mode": "nfc",
+          "color": "#3A3A3C"
+        },
+        "appIcon": {
+          "visible": false,
+          "imageId": null
+        },
+        "headerLogo": {
+          "imageId": null,
+          "text": "passline"
+        },
+        "elements": {}
+      }
+    },
+    "look-expired": {
+      "name": "Dark \u00b7 expired",
+      "style": {
+        "cardBg": "#22262D",
+        "band": {
+          "mode": "color",
+          "color": "#3A3F47",
+          "imageId": null,
+          "logoImageId": null,
+          "logoText": "p",
+          "logoColor": "#FFFFFF"
+        },
+        "labelColor": "#5093F6",
+        "valueColor": "#FFFFFF",
+        "footer": {
+          "mode": "text",
+          "color": "#FFFFFF",
+          "text": "EXPIRED"
+        },
+        "appIcon": {
+          "visible": true,
+          "imageId": null
+        },
+        "headerLogo": {
+          "imageId": null,
+          "text": "passline"
+        },
+        "elements": {}
+      }
+    }
+  },
+  "takes": {
+    "take-1": {
+      "name": "Take 1",
+      "startIndex": 0,
+      "newTicketSource": "last",
+      "tickets": [
+        {
+          "id": "t1",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "11"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        },
+        {
+          "id": "t2",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "12"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        },
+        {
+          "id": "t3",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "13"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        },
+        {
+          "id": "t4",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "14"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        },
+        {
+          "id": "t5",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "15"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        },
+        {
+          "id": "t6",
+          "style": {
+            "cardBg": "#22262D",
+            "band": {
+              "mode": "color",
+              "color": "#2D6BE0",
+              "imageId": null,
+              "logoImageId": null,
+              "logoText": "p",
+              "logoColor": "#FFFFFF",
+              "size": 66,
+              "x": 0,
+              "y": 0
+            },
+            "footer": {
+              "mode": "nfc",
+              "color": "#BDBEC0",
+              "text": "EXPIRED"
+            },
+            "appIcon": {
+              "visible": true,
+              "imageId": null
+            },
+            "headerLogo": {
+              "imageId": null,
+              "text": "passline",
+              "size": 23,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            }
+          },
+          "fields": {
+            "time": {
+              "values": [
+                "7:00 PM"
+              ],
+              "size": 11.5,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "date": {
+              "values": [
+                "Nov 7, 2026"
+              ],
+              "size": 22,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "venueLabel": {
+              "values": [
+                "HALCYON ARENA"
+              ],
+              "size": 10,
+              "x": 0,
+              "y": 0,
+              "color": "#5093F6"
+            },
+            "eventTitle": {
+              "values": [
+                "NOVA REYES - AFTERGLOW ARENA TOUR"
+              ],
+              "size": 16.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF"
+            },
+            "section": {
+              "values": [
+                "114"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SECTION",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "row": {
+              "values": [
+                "19"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ROW",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "seat": {
+              "values": [
+                "16"
+              ],
+              "size": 20.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "SEAT",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "entryInfo": {
+              "values": [
+                "LOWER LEVEL"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "ENTRY INFO",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            },
+            "ticketType": {
+              "values": [
+                "Card Member Presale"
+              ],
+              "size": 19.5,
+              "x": 0,
+              "y": 0,
+              "color": "#FFFFFF",
+              "label": "TICKET TYPE",
+              "labelVisible": true,
+              "labelColor": "#5093F6",
+              "visible": true,
+              "labelSize": 10
+            }
+          }
+        }
+      ]
+    }
+  }
+}

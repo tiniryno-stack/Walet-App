@@ -1,0 +1,108 @@
+/* ---------- base: remove every web-page tell (SPEC §3) ---------- */
+html, body {
+  margin: 0; padding: 0; height: 100%;
+  background: #000; color: #fff;
+  overscroll-behavior: none;
+  -webkit-user-select: none; user-select: none;
+  -webkit-touch-callout: none;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-text-size-adjust: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+body { position: fixed; inset: 0; overflow: hidden; touch-action: manipulation; }
+* { box-sizing: border-box; }
+*::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+button { font: inherit; color: inherit; -webkit-tap-highlight-color: transparent; }
+input, textarea, select { -webkit-user-select: text; user-select: text; font: inherit; }
+[hidden] { display: none !important; }
+
+.screen { position: fixed; inset: 0; background: #000; }
+
+/* ---------- pass view ---------- */
+#pass { overflow: hidden; }
+.topbtn {
+  position: absolute; top: 62px; width: 44px; height: 44px; padding: 0;
+  border-radius: 50%; background: #181818; border: 1px solid #3A3A3A;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  transition: transform .12s ease; z-index: 3; touch-action: none;
+}
+.topbtn:active { transform: scale(0.94); }
+.topbtn.close { left: 16px; }
+.topbtn.more { right: 16px; }
+.topbtn.more i { width: 4.6px; height: 4.6px; border-radius: 50%; background: #fff; display: block; }
+
+.pager {
+  position: absolute; left: 0; right: 0; top: 98px; height: 445px;
+  display: flex; align-items: flex-start;
+  padding-top: 30px;
+  overflow-x: auto; overflow-y: hidden;
+  scroll-snap-type: x mandatory; scroll-padding-left: 20px;
+  overscroll-behavior-x: contain; overscroll-behavior-y: none;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-x;
+  outline: none;
+}
+.pager::before, .pager::after { content: ""; flex: 0 0 20px; height: 1px; }
+.pager::after { flex-basis: 12px; }
+.slide { flex: 0 0 var(--card-w); margin-right: 8px; scroll-snap-align: start; scroll-snap-stop: always; }
+.slide:last-of-type { margin-right: 8px; }
+
+.card { position: relative; width: var(--card-w, 362px); height: 381px; }
+.card-face {
+  position: absolute; inset: 0; border-radius: 3px; overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.22);
+  -webkit-mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px);
+  mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px);
+  font-variant-numeric: tabular-nums;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", system-ui, "Helvetica Neue", Arial, sans-serif;
+}
+.card-face .el { position: absolute; white-space: nowrap; }
+.card-face .fld { display: flex; flex-direction: column; }
+.card-face .hcol { position: absolute; display: flex; flex-direction: column; align-items: flex-start; }
+.card-face .date, .card-face .wordmark { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif; }
+.card-face .wordmark { font-weight: 800; font-style: italic; letter-spacing: -0.035em; }
+.card-face .title { overflow: hidden; text-overflow: clip; text-transform: none; }
+.card-face .band {
+  left: 0; width: 100%; display: flex; align-items: center; justify-content: center;
+  background-size: cover; background-position: center; background-repeat: no-repeat;
+}
+.card-face .bandlogo { font-weight: 800; font-style: italic; line-height: 1; letter-spacing: -0.03em; margin-top: -0.08em; font-family: -apple-system, "SF Pro Display", system-ui, sans-serif; }
+.card-face .appicon { display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.card-face .appicon span { font-size: 13px; font-weight: 800; font-style: italic; color: #fff; line-height: 1; }
+.card-face .appicon img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.card-face .footer svg { display: block; }
+.card-face img { -webkit-user-drag: none; pointer-events: none; }
+
+.dots {
+  position: absolute; left: 0; right: 0; top: 522.5px; height: 7px;
+  display: flex; justify-content: center; gap: 10.7px; pointer-events: none;
+}
+.dots span { flex: none; width: 7px; height: 7px; border-radius: 50%; background: #4B4C4D; transition: transform .2s ease, background-color .15s linear; }
+.dots span.on { background: #fff; }
+
+.nfc-prompt { position: absolute; inset: 0; pointer-events: none; opacity: 0; will-change: opacity; }
+.nfc-ring-wrap { position: absolute; width: 63px; height: 63px; }
+.nfc-ring { position: absolute; inset: 0; border-radius: 50%; border: 3.67px solid #3F8EF7; border-color: color(display-p3 0.2471 0.5569 0.9686); background: #000; }
+.nfc-clip { position: absolute; left: 3px; top: 3px; width: 57px; height: 57px; border-radius: 50%; overflow: hidden; -webkit-mask-image: -webkit-radial-gradient(white, black); }
+.nfc-enter { position: absolute; inset: 0; perspective: 163px; perspective-origin: 50% 50%; will-change: transform; }
+.nfc-phone {
+  position: absolute; left: 11px; top: 12.17px; width: 35px; height: 60px;
+  border-radius: 6px; background: #0C284D; background: color(display-p3 0.0471 0.1569 0.302); border: 1.67px solid #3F8EF7; border-color: color(display-p3 0.2471 0.5569 0.9686);
+  box-shadow: 0 0 0 1.3px #000;
+  transform-origin: 50% 75px; will-change: transform;
+}
+.nfc-screen { position: absolute; inset: 0; border-radius: 4.3px; overflow: hidden; }
+.nfc-sheen {
+  position: absolute; left: -184.5px; top: -172px; width: 400px; height: 400px;
+  background: linear-gradient(to bottom left, #063A76 0 50%, transparent 50% 100%);
+  background: linear-gradient(to bottom left, color(display-p3 0.0235 0.2275 0.4627) 0 50%, transparent 50% 100%);
+  transform: translate(62px, -62px); will-change: transform;
+}
+.nfc-speaker { position: absolute; left: 10.9px; top: 3.1px; width: 9.8px; height: 2.8px; border-radius: 1.4px; background: #3F8EF7; background: color(display-p3 0.2471 0.5569 0.9686); }
+.nfc-text {
+  position: absolute; left: 0; right: 0; top: 629.3px; text-align: center;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", system-ui, sans-serif;
+  font-size: 22px; line-height: 26.5px; color: #8D8D92;
+}
