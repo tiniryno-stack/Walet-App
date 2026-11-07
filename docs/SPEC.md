@@ -448,6 +448,13 @@ For each other ticket in the take, deep-copy `style` and every field from the so
 | 11-07 | NFC animation, measured from a 60 fps recording: the phone shrinks to about 78% (it recedes) while a lighter diagonal band sweeps from top-right to bottom-left, then reverses. The ring stays still, and there's no glow. |
 | 11-07 | The NFC tilt is a real 3D `rotateX` with perspective (the top tips away, a slight trapezoid), not a flat scale. |
 | 11-07 | Swipe measured: about 0.4 s with no overshoot. The NFC prompt fades out on each swipe, the ring fades back in empty, then the phone slides up into it and the tilt loop restarts. |
+| 11-07 | **v1 build — screenshot wins over §5.2 text sizes.** Measured cap heights (SF Pro cap = 0.7046 em) give: time 11.5, date 22, labels 10, venue 10, title 16.5, row-1 values 20.5, row-2 values 19.5 pt (SPEC said 12/26/12/12/17.5/24.5/22.5). Text is placed by baseline (card-relative baselines in `js/constants.js`). |
+| 11-07 | Time/date header and TICKET TYPE are a **column pinned to the right edge with left-aligned text** (confirmed in wallet-pass and the Sphere reference); SEAT is right-aligned text. ROW column starts at card x 178.3. |
+| 11-07 | Reference PNGs are **Display P3**. Stored hex colors are P3 values, rendered via `color(display-p3 …)`; Generate samples the canvas in P3. Measured: label #5093F6, ring #3F8EF7, phone #0C284D, NFC symbol #BDBEC0, inactive dot #4B4C4D, close/⋯ fill #181818 with #3A3A3A stroke, card rim ≈ 1 pt darker. |
+| 11-07 | Footer text (EXPIRED) 12 pt, right inset 8, baseline 10.5 pt above the card bottom (from the Sphere reference). App icon at card (7, bottom 6). |
+| 11-07 | Deploy: static files at the repo root on `main` (Pages "Deploy from a branch"); no build step. Service worker: shell stale-while-revalidate, OCR assets cache-first. |
+| 11-07 | Builder: unsaved edits prompt Save/Discard when leaving or stepping tickets. Apply to All saves the current ticket first, then copies. The Wipe divider position, mode and alignment persist on the device (`walletProp.builderRef`). |
+| 11-07 | Generate: OCR reads raw crops tight to the ink, scaled to ~85 px text height (single glyphs use single-char mode); time/date are normalized to "7:00 PM" / "Nov 7, 2026". On the 4 references: colors, band type, footer mode and layout are all right; text is exact except single short values on the dark-blue sheet ("4"→"A", "FLR1"→"FLR"), which are flagged with a dot. |
 
 ---
 

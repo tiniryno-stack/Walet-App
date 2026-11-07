@@ -1,6 +1,6 @@
 // Offline-first service worker (SPEC §3). App shell: stale-while-revalidate, so a new
 // deploy lands on the next launch. OCR engine + language data: cache-first, precached.
-const VERSION = 'v1';
+const VERSION = 'v2';
 const SHELL = `wallet-shell-${VERSION}`;
 const OCR = 'wallet-ocr-v5';
 
