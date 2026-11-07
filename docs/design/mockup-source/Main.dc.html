@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Pass view</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#000}
+a{color:#4C8DF6}a:hover{color:#7AA9F8}
+@keyframes nfcphone{0%{transform:translateZ(-12px) rotateX(4deg)}31%,40%{transform:translateZ(-23px) rotateX(26deg)}65%,100%{transform:translateZ(-12px) rotateX(4deg)}}
+@keyframes nfcsheen{0%,7%{transform:translate(62px,-62px)}18%{transform:translate(0,0)}29%,37%{transform:translate(-6.5px,6.5px)}53%{transform:translate(0,0)}64%,100%{transform:translate(62px,-62px)}}
+@keyframes nfcenter{0%{transform:translateY(42px)}100%{transform:translateY(0)}}
+@keyframes nfcfade{0%{opacity:0}100%{opacity:1}}
+.nfc-enter{animation:nfcenter .38s cubic-bezier(.2,.8,.2,1) .33s both}
+.nfc-fade{animation:nfcfade .2s ease-out both}
+.nfc-phone{transform-origin:50% 75px;animation:nfcphone 3.2s ease-in-out .9s infinite}
+.nfc-sheen{animation:nfcsheen 3.2s ease-in-out .9s infinite}
+</style>
+</helmet>
+<div style="width: 402px; height: 874px; position: relative; overflow: hidden; background: #000000">
+<div style="width: 395px; height: 859px; position: absolute; left: 0; top: 0; transform: scale(1.01772); transform-origin: 0 0; overflow: hidden; background: #000000; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, system-ui, sans-serif; color: #FFFFFF; -webkit-font-smoothing: antialiased; font-variant-numeric: tabular-nums">
+
+  <button type="button" aria-label="Close" style="position: absolute; left: 15.5px; top: 61px; width: 43px; height: 43px; border-radius: 50%; background: #1C1C1E; border: 1px solid #2C2C2E; box-sizing: border-box; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer">
+    <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M2 2 L16 16 M16 2 L2 16" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" fill="none"></path></svg>
+  </button>
+  <button type="button" aria-label="More (long press opens Organizer)" style="position: absolute; left: 336px; top: 61px; width: 43px; height: 43px; border-radius: 50%; background: #1C1C1E; border: 1px solid #2C2C2E; box-sizing: border-box; padding: 0; display: flex; align-items: center; justify-content: center; gap: 4px; cursor: pointer">
+    <span style="width: 4.5px; height: 4.5px; border-radius: 50%; background: #FFFFFF"></span>
+    <span style="width: 4.5px; height: 4.5px; border-radius: 50%; background: #FFFFFF"></span>
+    <span style="width: 4.5px; height: 4.5px; border-radius: 50%; background: #FFFFFF"></span>
+  </button>
+
+  <sc-if value="{{showPeek}}" hint-placeholder-val="{{ true }}">
+    <div style="position: absolute; left: 383.5px; top: 126px; width: 355px; height: 374px; border-radius: 3px; overflow: hidden; background: #22262D">
+      <div style="position: absolute; left: 0; top: 63.5px; width: 100%; height: 93.5px; background: {{peekColor}}"></div>
+      <div style="position: absolute; left: 6.5px; bottom: 6px; width: 20px; height: 20px; border-radius: 5px; background: {{peekColor}}"></div>
+    </div>
+  </sc-if>
+
+  <div style="position: absolute; left: 20px; top: 126px; width: 355px; height: 374px; filter: {{cardFilter}}">
+    <div data-field="card" style="position: absolute; inset: 0; border-radius: 3px; overflow: hidden; background: #22262D; -webkit-mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px); mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px)">
+
+      <div data-field="brand" style="position: absolute; left: 13px; top: 18px; height: 26px; display: flex; align-items: center; font-family: Inter, -apple-system, sans-serif; font-size: 23px; font-weight: 800; font-style: italic; letter-spacing: -0.8px; color: #FFFFFF">passline</div>
+
+      <div style="position: absolute; right: 15px; top: 10px; display: flex; flex-direction: column; align-items: flex-end">
+        <div data-field="time" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">7:00 PM</div>
+        <div data-field="date" style="font-family: -apple-system, 'SF Pro Display', Inter, sans-serif; font-size: 25.5px; font-weight: 400; line-height: 28px; letter-spacing: -0.2px; color: #FFFFFF">Nov 7, 2026</div>
+      </div>
+
+      <div data-field="band" style="position: absolute; left: 0; top: 63.5px; width: 355px; height: 93.5px; background: {{bandColor}}; display: flex; align-items: center; justify-content: center">
+        <div data-field="glyph" style="font-family: Inter, -apple-system, sans-serif; font-size: 78px; font-weight: 800; font-style: italic; line-height: 1; letter-spacing: -2px; color: #FFFFFF; margin-top: -6px">p</div>
+      </div>
+
+      <div style="position: absolute; left: 15px; right: 15px; top: 164px; display: flex; flex-direction: column">
+        <div data-field="venueLabel" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; text-transform: uppercase; color: #4C8DF6">HALCYON ARENA</div>
+        <div data-field="eventTitle" style="font-size: 17px; font-weight: 400; line-height: 22px; text-transform: uppercase; white-space: nowrap; overflow: hidden; color: #FFFFFF">NOVA REYES - AFTERGLOW ARENA TOUR</div>
+      </div>
+
+      <div style="position: absolute; left: 15px; top: 211px; display: flex; flex-direction: column">
+        <div data-field="section.label" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">SECTION</div>
+        <div data-field="section" style="font-size: 24px; font-weight: 400; line-height: 29px; color: #FFFFFF">114</div>
+      </div>
+      <div style="position: absolute; left: 175.5px; top: 211px; display: flex; flex-direction: column">
+        <div data-field="row.label" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">ROW</div>
+        <div data-field="row" style="font-size: 24px; font-weight: 400; line-height: 29px; color: #FFFFFF">19</div>
+      </div>
+      <div style="position: absolute; right: 15px; top: 211px; display: flex; flex-direction: column; align-items: flex-end">
+        <div data-field="seat.label" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">SEAT</div>
+        <div data-field="seat" style="font-size: 24px; font-weight: 400; line-height: 29px; color: #FFFFFF">11</div>
+      </div>
+
+      <div style="position: absolute; left: 15px; top: 258px; display: flex; flex-direction: column">
+        <div data-field="entryInfo.label" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">ENTRY INFO</div>
+        <div data-field="entryInfo" style="font-size: 22px; font-weight: 400; line-height: 28px; white-space: nowrap; color: #FFFFFF">LOWER LEVEL</div>
+      </div>
+      <div style="position: absolute; left: 151.5px; top: 258px; display: flex; flex-direction: column">
+        <div data-field="ticketType.label" style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: #4C8DF6">TICKET TYPE</div>
+        <div data-field="ticketType" style="font-size: 22px; font-weight: 400; line-height: 28px; white-space: nowrap; color: #FFFFFF">Card Member Presale</div>
+      </div>
+
+      <div data-field="appIcon" style="position: absolute; left: 6.5px; bottom: 6px; width: 20px; height: 20px; border-radius: 5px; background: {{bandColor}}; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-size: 13px; font-weight: 800; font-style: italic; color: #FFFFFF">p</div>
+
+      <svg style="position: absolute; right: 8px; bottom: 6px" width="20" height="23" viewBox="0 0 20 23" role="img" aria-label="Contactless">
+        <path d="M2.5 9.5 Q4.2 11.5 2.5 13.5" stroke="#C7C7CC" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+        <path d="M6.5 7 Q10 11.5 6.5 16" stroke="#C7C7CC" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+        <path d="M10.5 4.5 Q15.6 11.5 10.5 18.5" stroke="#C7C7CC" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+        <path d="M14.5 2 Q21.2 11.5 14.5 21" stroke="#C7C7CC" stroke-width="1.8" fill="none" stroke-linecap="round"></path>
+      </svg>
+    </div>
+  </div>
+
+  <div aria-label="Page indicator" style="position: absolute; left: 0; top: 513px; width: 395px; height: 7px; display: flex; justify-content: center; gap: 10.4px">
+    <sc-for list="{{dots}}" as="dot" hint-placeholder-count="6">
+      <span style="width: 7px; height: 7px; border-radius: 50%; background: {{dot.color}}"></span>
+    </sc-for>
+  </div>
+
+  <div class="nfc-fade" style="position: absolute; left: 166px; top: 546px; width: 63px; height: 63px">
+    <div style="position: absolute; inset: 0; border-radius: 50%; border: 3.7px solid #3A8DF5; box-sizing: border-box; background: #000000"></div>
+    <div style="position: absolute; left: 3px; top: 3px; width: 57px; height: 57px; border-radius: 50%; overflow: hidden; perspective: 160px; perspective-origin: 50% 50%">
+      <div class="nfc-enter" style="position: absolute; inset: 0; perspective: 160px; perspective-origin: 50% 50%">
+      <div class="nfc-phone" style="position: absolute; left: 11px; top: 12.1px; width: 35px; height: 60px; border-radius: 6px; background: #002445; border: 2px solid #3A8DF5; box-sizing: border-box; box-shadow: 0 0 0 1.3px #000000">
+        <div style="position: absolute; inset: 0; border-radius: 4px; overflow: hidden">
+          <div class="nfc-sheen" style="position: absolute; left: -184.5px; top: -172px; width: 400px; height: 400px; background: linear-gradient(to bottom left, #063A76 0 50%, transparent 50% 100%)"></div>
+        </div>
+        <div style="position: absolute; left: 10.7px; top: 2.7px; width: 9.6px; height: 2.75px; border-radius: 1.5px; background: #3A8DF5"></div>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-field="nfcText" class="nfc-fade" style="position: absolute; left: 0; top: 618px; width: 395px; text-align: center; font-family: -apple-system, 'SF Pro Display', Inter, sans-serif; font-size: 22px; font-weight: 400; line-height: 28px; color: #8E8E93">Hold Near Reader</div>
+</div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"bandColor":{"editor":"color","default":"#2D6BE0","options":["#2D6BE0","#E0442D","#1E9E5A","#7A3FE0"],"section":"Ticket"},"peekColor":{"editor":"color","default":"#2D6BE0","section":"Ticket"},"ticketCount":{"editor":"int","default":6,"min":1,"max":12,"section":"Pager"},"activeIndex":{"editor":"int","default":0,"min":0,"max":11,"section":"Pager"},"showPeek":{"editor":"boolean","default":true,"section":"Pager"},"glow":{"editor":"range","default":0.35,"min":0,"max":1,"step":0.05,"section":"Ticket"},"$preview":{"width":402,"height":874}}'>
+class Component extends DCLogic {
+  hexToRgb(h) {
+    const m = /^#?([0-9a-f]{6})$/i.exec(h || '');
+    if (!m) return '45,107,224';
+    const n = parseInt(m[1], 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255].join(',');
+  }
+  renderVals() {
+    const bandColor = this.props.bandColor ?? '#2D6BE0';
+    const count = Math.max(1, this.props.ticketCount ?? 6);
+    const active = Math.min(count - 1, Math.max(0, this.props.activeIndex ?? 0));
+    const glow = this.props.glow ?? 0.35;
+    const rgb = this.hexToRgb(bandColor);
+    const dots = [];
+    for (let i = 0; i < count; i++) dots.push({ color: i === active ? '#FFFFFF' : '#5A5A5E' });
+    return {
+      bandColor,
+      peekColor: this.props.peekColor ?? '#2D6BE0',
+      showPeek: (this.props.showPeek ?? true) && active < count - 1,
+      dots,
+      cardFilter: 'drop-shadow(-6px 10px 22px rgba(' + rgb + ',' + glow + ')) drop-shadow(0 4px 10px rgba(0,0,0,0.6))'
+    };
+  }
+}
+</script>
+</body>
+</html>

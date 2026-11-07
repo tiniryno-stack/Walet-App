@@ -1,0 +1,4 @@
+docs/reference/
+node_modules/
+.DS_Store
+docs/design/side-by-side-reference-vs-mockup.png

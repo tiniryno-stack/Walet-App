@@ -1,0 +1,473 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organizer — ticket builder</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap">
+<style>
+body{margin:0;background:#000}
+a{color:#0A84FF}a:hover{color:#409CFF}
+input[type=range]{accent-color:#0A84FF}
+input[type=text]{outline:none}
+</style>
+</helmet>
+<div style="width: 393px; height: 852px; box-sizing: border-box; background: #000000; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; padding-top: 54px; display: flex; flex-direction: column; overflow: hidden; position: relative">
+
+  <div style="flex: none; display: flex; justify-content: space-between; align-items: center; height: 40px; padding: 0 16px">
+    <a href="Organizer.dc.html" style="width: 90px; font-size: 17px; color: #0A84FF; text-decoration: none">‹ Tickets</a>
+    <span style="font-size: 17px; font-weight: 600">Ticket 1 of 6</span>
+    <span style="width: 90px; display: flex; justify-content: flex-end; gap: 6px">
+      <button type="button" aria-label="Previous ticket" style="width: 32px; height: 30px; border: 0; border-radius: 8px; background: #1C1C1E; color: #FFFFFF; font-size: 15px; cursor: pointer">‹</button>
+      <button type="button" aria-label="Next ticket" style="width: 32px; height: 30px; border: 0; border-radius: 8px; background: #1C1C1E; color: #FFFFFF; font-size: 15px; cursor: pointer">›</button>
+    </span>
+  </div>
+
+  <div style="flex: none; position: relative; height: 300px; overflow: hidden; background: #000000">
+    <div style="position: absolute; left: 0; top: 0; width: 393px; height: 400px; transform: scale(0.75); transform-origin: 196.5px 0">
+      <div style="position: absolute; left: 19px; top: 13px; width: 355px; height: 374px; border-radius: 3px; overflow: hidden; background: {{cardBg}}; -webkit-mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px); mask-image: radial-gradient(circle 40px at 50% -24px, transparent 39.5px, #000 40px)">
+
+        <button type="button" onClick="{{e.brand.pick}}" aria-label="Header logo" style="position: absolute; left: 13px; top: 18px; height: 26px; padding: 0; background: none; border: 0; display: flex; align-items: center; font-family: Inter, sans-serif; font-size: {{e.brand.px}}; font-weight: 800; font-style: italic; letter-spacing: -0.8px; color: {{e.brand.color}}; outline: {{e.brand.outline}}; outline-offset: 2px; transform: {{e.brand.move}}; cursor: pointer">{{e.brand.value}}</button>
+
+        <button type="button" onClick="{{e.time.pick}}" aria-label="Time" style="position: absolute; right: 15px; top: 10px; padding: 0; background: none; border: 0; font: inherit; font-size: {{e.time.px}}; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.time.color}}; outline: {{e.time.outline}}; outline-offset: 2px; transform: {{e.time.move}}; cursor: pointer">{{e.time.value}}</button>
+
+        <button type="button" onClick="{{e.date.pick}}" aria-label="Date" style="position: absolute; right: 15px; top: 25px; padding: 0; background: none; border: 0; font: inherit; font-size: {{e.date.px}}; line-height: 28px; white-space: nowrap; color: {{e.date.color}}; outline: {{e.date.outline}}; outline-offset: 2px; transform: {{e.date.move}}; cursor: pointer">{{e.date.value}}</button>
+
+        <button type="button" onClick="{{e.band.pick}}" aria-label="Band" style="position: absolute; left: 0; top: 63.5px; width: 355px; height: 93.5px; padding: 0; border: 0; background: {{bandColor}}; display: flex; align-items: center; justify-content: center; outline: {{e.band.outline}}; outline-offset: -2px; cursor: pointer">
+          <span style="font-family: Inter, sans-serif; font-size: 78px; font-weight: 800; font-style: italic; line-height: 1; color: #FFFFFF; margin-top: -6px; transform: {{e.band.move}}">p</span>
+        </button>
+
+        <button type="button" onClick="{{e.venue.pick}}" aria-label="Venue" style="position: absolute; left: 15px; top: 164px; padding: 0; background: none; border: 0; font: inherit; font-size: {{e.venue.px}}; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; white-space: nowrap; color: {{e.venue.color}}; outline: {{e.venue.outline}}; outline-offset: 2px; transform: {{e.venue.move}}; cursor: pointer">{{e.venue.value}}</button>
+
+        <button type="button" onClick="{{e.title.pick}}" aria-label="Event title" style="position: absolute; left: 15px; top: 179px; max-width: 325px; padding: 0; background: none; border: 0; font: inherit; font-size: {{e.title.px}}; line-height: 22px; white-space: nowrap; overflow: hidden; text-align: left; color: {{e.title.color}}; outline: {{e.title.outline}}; outline-offset: 2px; transform: {{e.title.move}}; cursor: pointer">{{e.title.value}}</button>
+
+        <button type="button" onClick="{{e.section.pick}}" aria-label="Section" style="position: absolute; left: 15px; top: 211px; padding: 0; background: none; border: 0; font: inherit; display: flex; flex-direction: column; align-items: flex-start; outline: {{e.section.outline}}; outline-offset: 2px; transform: {{e.section.move}}; cursor: pointer">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.section.labelColor}}">{{e.section.label}}</span>
+          <span style="font-size: {{e.section.px}}; line-height: 29px; color: {{e.section.color}}">{{e.section.value}}</span>
+        </button>
+        <button type="button" onClick="{{e.row.pick}}" aria-label="Row" style="position: absolute; left: 175.5px; top: 211px; padding: 0; background: none; border: 0; font: inherit; display: flex; flex-direction: column; align-items: flex-start; outline: {{e.row.outline}}; outline-offset: 2px; transform: {{e.row.move}}; cursor: pointer">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.row.labelColor}}">{{e.row.label}}</span>
+          <span style="font-size: {{e.row.px}}; line-height: 29px; color: {{e.row.color}}">{{e.row.value}}</span>
+        </button>
+        <button type="button" onClick="{{e.seat.pick}}" aria-label="Seat" style="position: absolute; right: 15px; top: 211px; padding: 0; background: none; border: 0; font: inherit; display: flex; flex-direction: column; align-items: flex-end; outline: {{e.seat.outline}}; outline-offset: 2px; transform: {{e.seat.move}}; cursor: pointer">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.seat.labelColor}}">{{e.seat.label}}</span>
+          <span style="font-size: {{e.seat.px}}; line-height: 29px; color: {{e.seat.color}}">{{e.seat.value}}</span>
+        </button>
+        <button type="button" onClick="{{e.entry.pick}}" aria-label="Entry info" style="position: absolute; left: 15px; top: 258px; padding: 0; background: none; border: 0; font: inherit; display: flex; flex-direction: column; align-items: flex-start; outline: {{e.entry.outline}}; outline-offset: 2px; transform: {{e.entry.move}}; cursor: pointer">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.entry.labelColor}}">{{e.entry.label}}</span>
+          <span style="font-size: {{e.entry.px}}; line-height: 28px; white-space: nowrap; color: {{e.entry.color}}">{{e.entry.value}}</span>
+        </button>
+        <button type="button" onClick="{{e.type.pick}}" aria-label="Ticket type" style="position: absolute; left: 151.5px; top: 258px; padding: 0; background: none; border: 0; font: inherit; display: flex; flex-direction: column; align-items: flex-start; outline: {{e.type.outline}}; outline-offset: 2px; transform: {{e.type.move}}; cursor: pointer">
+          <span style="font-size: 12px; font-weight: 600; letter-spacing: 0.6px; line-height: 15px; color: {{e.type.labelColor}}">{{e.type.label}}</span>
+          <span style="font-size: {{e.type.px}}; line-height: 28px; white-space: nowrap; color: {{e.type.color}}">{{e.type.value}}</span>
+        </button>
+
+        <button type="button" onClick="{{e.icon.pick}}" aria-label="App icon" style="position: absolute; left: 6.5px; bottom: 6px; width: 20px; height: 20px; padding: 0; border: 0; border-radius: 5px; background: {{iconBg}}; opacity: {{iconOpacity}}; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-size: 13px; font-weight: 800; font-style: italic; color: #FFFFFF; outline: {{e.icon.outline}}; outline-offset: 2px; transform: {{e.icon.move}}; cursor: pointer">p</button>
+
+        <button type="button" onClick="{{e.footer.pick}}" aria-label="Footer" style="position: absolute; right: 8px; bottom: 6px; min-width: 20px; height: 23px; padding: 0; background: none; border: 0; display: flex; align-items: center; justify-content: flex-end; font: inherit; outline: {{e.footer.outline}}; outline-offset: 2px; transform: {{e.footer.move}}; cursor: pointer">
+          <sc-if value="{{footerNfc}}" hint-placeholder-val="{{ true }}">
+            <svg width="20" height="23" viewBox="0 0 20 23" aria-hidden="true"><path d="M2.5 9.5 Q4.2 11.5 2.5 13.5 M6.5 7 Q10 11.5 6.5 16 M10.5 4.5 Q15.6 11.5 10.5 18.5 M14.5 2 Q21.2 11.5 14.5 21" stroke="{{e.footer.color}}" stroke-width="1.8" fill="none" stroke-linecap="round"></path></svg>
+          </sc-if>
+          <sc-if value="{{footerText}}" hint-placeholder-val="{{ false }}">
+            <span style="font-size: {{e.footer.px}}; letter-spacing: 0.4px; white-space: nowrap; color: {{e.footer.color}}">{{e.footer.value}}</span>
+          </sc-if>
+        </button>
+      </div>
+
+      <sc-if value="{{refOn}}" hint-placeholder-val="{{ true }}">
+        <div aria-hidden="true" style="position: absolute; left: 19px; top: 13px; width: 355px; height: 374px; opacity: {{refOpacity}}; pointer-events: none; border: 1.5px dashed #FF9F0A; box-sizing: border-box; border-radius: 3px; background: repeating-linear-gradient(135deg, rgba(255,159,10,0.5) 0 10px, rgba(255,159,10,0.25) 10px 20px); clip-path: {{refClip}}; display: flex; align-items: center; justify-content: center">
+          <span style="font-size: 15px; font-weight: 600; color: #FF9F0A; background: #000000; padding: 4px 8px; border-radius: 6px">Reference photo</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{wipeOn}}" hint-placeholder-val="{{ true }}">
+        <div aria-hidden="true" style="position: absolute; top: 0; bottom: 0; left: {{wipeLeft}}; width: 2px; margin-left: -1px; background: #FFFFFF; pointer-events: none"></div>
+        <div role="slider" tabindex="0" aria-label="Wipe divider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="{{wipePct}}" onPointerDown="{{dragStart}}" onPointerMove="{{dragMove}}" onPointerUp="{{dragEnd}}" onKeyDown="{{wipeKey}}" style="position: absolute; top: 178px; left: {{wipeLeft}}; width: 48px; height: 48px; margin-left: -24px; border-radius: 50%; background: #FFFFFF; box-shadow: 0 2px 8px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center; touch-action: none; cursor: ew-resize">
+          <svg width="24" height="14" viewBox="0 0 22 12" aria-hidden="true"><path d="M7 1 L2 6 L7 11 M15 1 L20 6 L15 11" stroke="#000000" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="flex: none; display: flex; flex-direction: column; gap: 8px; padding: 8px 16px 10px; background: #0B0B0C; border-top: 0.5px solid #2C2C2E; border-bottom: 0.5px solid #2C2C2E">
+    <div style="display: flex; align-items: center; gap: 8px">
+      <label for="ref-upload" aria-label="Upload reference photo" style="flex: none; width: 32px; height: 28px; border-radius: 7px; background: #1C1C1E; display: flex; align-items: center; justify-content: center; cursor: pointer">
+        <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="1.5" y="3" width="13" height="10" rx="2" stroke="#0A84FF" stroke-width="1.4" fill="none"></rect><circle cx="5.5" cy="6.5" r="1.3" fill="#0A84FF"></circle><path d="M2.5 12 L6.5 8.5 L9 10.5 L11 9 L14 11.5" stroke="#0A84FF" stroke-width="1.4" fill="none"></path></svg>
+      </label>
+      <input id="ref-upload" type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+      <div role="group" aria-label="Reference mode" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: #1C1C1E; border-radius: 8px; padding: 2px; width: 174px">
+        <button type="button" onClick="{{modeOverlay}}" style="height: 24px; border: 0; border-radius: 6px; background: {{mOverlayBg}}; color: #FFFFFF; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Overlay</button>
+        <button type="button" onClick="{{modeWipe}}" style="height: 24px; border: 0; border-radius: 6px; background: {{mWipeBg}}; color: #FFFFFF; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Wipe</button>
+        <button type="button" onClick="{{modeOff}}" style="height: 24px; border: 0; border-radius: 6px; background: {{mOffBg}}; color: #FFFFFF; font: inherit; font-size: 12px; font-weight: 600; cursor: pointer">Off</button>
+      </div>
+      <label for="ref-slider" style="margin-left: auto; font-size: 12px; color: #8E8E93; font-variant-numeric: tabular-nums">{{refSliderLabel}}</label>
+    </div>
+    <sc-if value="{{refOn}}" hint-placeholder-val="{{ true }}">
+      <input id="ref-slider" type="range" min="0" max="100" value="{{refSliderVal}}" onInput="{{setRefSlider}}" style="width: 100%; margin: 0">
+    </sc-if>
+    <div style="display: flex; align-items: center; gap: 8px">
+      <button type="button" aria-label="Previous element" onClick="{{prevEl}}" style="width: 36px; height: 32px; flex: none; border: 0; border-radius: 8px; background: #1C1C1E; color: #FFFFFF; font-size: 16px; cursor: pointer">‹</button>
+      <div style="flex: 1; min-width: 0; text-align: center; display: flex; flex-direction: column">
+        <span style="font-size: 15px; font-weight: 600">{{selName}}</span>
+        <span style="font-size: 11px; color: #8E8E93">{{selIndex}} of 13 · tap the card to jump</span>
+      </div>
+      <button type="button" aria-label="Next element" onClick="{{nextEl}}" style="width: 36px; height: 32px; flex: none; border: 0; border-radius: 8px; background: #1C1C1E; color: #FFFFFF; font-size: 16px; cursor: pointer">›</button>
+    </div>
+  </div>
+
+  <div style="flex: 1; min-height: 0; overflow-y: auto; padding: 12px 16px 28px; display: flex; flex-direction: column; gap: 10px">
+
+    <div style="background: #1C1C1E; border-radius: 10px; padding: 12px 14px; display: flex; flex-direction: column; gap: 10px">
+      <div style="display: flex; gap: 8px">
+        <button type="button" onClick="{{generate}}" style="flex: 1; height: 38px; border: 0; border-radius: 9px; background: #0A84FF; color: #FFFFFF; font: inherit; font-size: 15px; font-weight: 600; cursor: pointer">Generate from reference</button>
+        <button type="button" onClick="{{extract}}" style="flex: none; height: 38px; padding: 0 12px; border: 0; border-radius: 9px; background: #2C2C2E; color: #0A84FF; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer">Swatches only</button>
+      </div>
+      <sc-if value="{{genDone}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 12px; line-height: 16px; color: #8E8E93">
+          <span style="color: #30D158; font-weight: 600">Filled from the photo. Check it with Wipe, then tweak.</span>
+          <span>Colors: card, band, labels, values and footer, sampled from where each sits on a Wallet pass.</span>
+          <span>Images: the header logo, band and app icon are cropped straight from the photo.</span>
+          <span>Text: read on the phone (offline). Fields it wasn't sure about are marked with a dot.</span>
+        </div>
+      </sc-if>
+      <sc-if value="{{showRefSwatches}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 6px">
+          <span style="font-size: 12px; color: #8E8E93">From reference: tap one to apply it to {{selName}}</span>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap">
+            <sc-for list="{{refSwatches}}" as="s" hint-placeholder-count="8">
+              <button type="button" aria-label="{{s.hex}}" onClick="{{s.pick}}" style="width: 32px; height: 32px; border-radius: 8px; padding: 0; border: {{s.ring}}; background: {{s.hex}}; cursor: pointer"></button>
+            </sc-for>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #1C1C1E; border-radius: 10px; overflow: hidden">
+      <button type="button" onClick="{{tgContent}}" aria-expanded="{{openContent}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: none; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #FFFFFF; cursor: pointer"><span>Content</span><span style="color: #8E8E93">{{chContent}}</span></button>
+      <sc-if value="{{openContent}}" hint-placeholder-val="{{ true }}">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 0 14px 14px">
+          <sc-if value="{{isField}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <label for="in-label" style="font-size: 12px; color: #8E8E93">Label</label>
+              <input id="in-label" type="text" value="{{selLabel}}" onInput="{{setLabel}}" style="background: #2C2C2E; border: 0; border-radius: 8px; padding: 9px 10px; font: inherit; font-size: 15px; font-weight: 600; letter-spacing: 0.4px; color: #FFFFFF">
+            </div>
+          </sc-if>
+          <sc-if value="{{hasValue}}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 4px">
+              <label for="in-value" style="font-size: 12px; color: #8E8E93">{{valueLabel}}</label>
+              <input id="in-value" type="text" value="{{selValue}}" onInput="{{setValue}}" style="background: #2C2C2E; border: 0; border-radius: 8px; padding: 9px 10px; font: inherit; font-size: 15px; color: #FFFFFF">
+              <button type="button" style="align-self: flex-start; background: none; border: 0; padding: 4px 0 0; font: inherit; font-size: 13px; color: #0A84FF; cursor: pointer">+ alt value (for glitch)</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{hasImage}}" hint-placeholder-val="{{ false }}">
+            <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 8px">
+              <label for="in-img" style="height: 36px; border-radius: 8px; background: #2C2C2E; display: flex; align-items: center; justify-content: center; font-size: 14px; color: #0A84FF; cursor: pointer">Upload…</label>
+              <input id="in-img" type="file" accept="image/*" style="position: absolute; width: 1px; height: 1px; opacity: 0">
+              <button type="button" style="height: 36px; border: 0; border-radius: 8px; background: #2C2C2E; font: inherit; font-size: 14px; color: #0A84FF; cursor: pointer">Library</button>
+              <button type="button" style="height: 36px; border: 0; border-radius: 8px; background: #2C2C2E; font: inherit; font-size: 14px; color: #8E8E93; cursor: pointer">Use text</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{isFooter}}" hint-placeholder-val="{{ false }}">
+            <div role="group" aria-label="Footer type" style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2px; background: #2C2C2E; border-radius: 8px; padding: 2px">
+              <button type="button" onClick="{{footNfc}}" style="height: 30px; border: 0; border-radius: 6px; background: {{fNfcBg}}; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">NFC symbol</button>
+              <button type="button" onClick="{{footText}}" style="height: 30px; border: 0; border-radius: 6px; background: {{fTextBg}}; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">Text</button>
+              <button type="button" onClick="{{footNone}}" style="height: 30px; border: 0; border-radius: 6px; background: {{fNoneBg}}; color: #FFFFFF; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer">None</button>
+            </div>
+          </sc-if>
+          <sc-if value="{{isIcon}}" hint-placeholder-val="{{ false }}">
+            <button type="button" onClick="{{toggleIcon}}" aria-pressed="{{iconOn}}" style="display: flex; align-items: center; justify-content: space-between; padding: 0; background: none; border: 0; font: inherit; font-size: 15px; color: #FFFFFF; cursor: pointer">
+              <span>Show app icon</span>
+              <span style="width: 51px; height: 31px; border-radius: 16px; background: {{iconSwitch}}; position: relative"><span style="position: absolute; top: 2px; left: {{iconKnob}}; width: 27px; height: 27px; border-radius: 50%; background: #FFFFFF"></span></span>
+            </button>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #1C1C1E; border-radius: 10px; overflow: hidden">
+      <button type="button" onClick="{{tgStyle}}" aria-expanded="{{openStyle}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: none; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #FFFFFF; cursor: pointer"><span>Color &amp; size</span><span style="color: #8E8E93">{{chStyle}}</span></button>
+      <sc-if value="{{openStyle}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 0 14px 14px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #8E8E93"><span>{{colorTitle}}</span><span style="font-variant-numeric: tabular-nums">{{selColor}}</span></div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap">
+              <sc-for list="{{swatches}}" as="s" hint-placeholder-count="10">
+                <button type="button" aria-label="{{s.hex}}" onClick="{{s.pick}}" style="width: 28px; height: 28px; border-radius: 50%; padding: 0; border: {{s.ring}}; background: {{s.hex}}; cursor: pointer"></button>
+              </sc-for>
+              <button type="button" aria-label="Pick color from reference" style="width: 28px; height: 28px; border-radius: 50%; padding: 0; border: 1px dashed #8E8E93; background: none; display: flex; align-items: center; justify-content: center; cursor: pointer">
+                <svg width="14" height="14" viewBox="0 0 16 16" aria-hidden="true"><path d="M10.5 1.5 L14.5 5.5 L12.5 7.5 L8.5 3.5 Z M9.5 4.5 L3 11 L2 14 L5 13 L11.5 6.5" stroke="#FFFFFF" stroke-width="1.4" fill="none" stroke-linejoin="round"></path></svg>
+              </button>
+            </div>
+          </div>
+          <sc-if value="{{isField}}" hint-placeholder-val="{{ false }}">
+            <div style="display: flex; flex-direction: column; gap: 8px">
+              <div style="display: flex; justify-content: space-between; font-size: 12px; color: #8E8E93"><span>Label color</span><span style="font-variant-numeric: tabular-nums">{{selLabelColor}}</span></div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap">
+                <sc-for list="{{labelSwatches}}" as="s" hint-placeholder-count="10">
+                  <button type="button" aria-label="{{s.hex}}" onClick="{{s.pick}}" style="width: 28px; height: 28px; border-radius: 50%; padding: 0; border: {{s.ring}}; background: {{s.hex}}; cursor: pointer"></button>
+                </sc-for>
+              </div>
+            </div>
+          </sc-if>
+          <sc-if value="{{hasSize}}" hint-placeholder-val="{{ true }}">
+            <div style="display: flex; flex-direction: column; gap: 6px">
+              <div style="display: flex; align-items: center; gap: 10px">
+                <label for="in-size" style="font-size: 15px; width: 64px">Text size</label>
+                <button type="button" aria-label="Smaller" onClick="{{sizeDown}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 16px; cursor: pointer">−</button>
+                <input id="in-size" type="range" min="8" max="60" step="0.5" value="{{selSize}}" onInput="{{setSize}}" style="flex: 1; min-width: 0">
+                <button type="button" aria-label="Bigger" onClick="{{sizeUp}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 16px; cursor: pointer">+</button>
+                <span style="width: 44px; text-align: right; font-size: 13px; color: #8E8E93; font-variant-numeric: tabular-nums">{{selSize}}pt</span>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #1C1C1E; border-radius: 10px; overflow: hidden">
+      <button type="button" onClick="{{tgPos}}" aria-expanded="{{openPos}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: none; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #FFFFFF; cursor: pointer"><span>Position</span><span style="color: #8E8E93">{{chPos}}</span></button>
+      <sc-if value="{{openPos}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 10px; padding: 0 14px 14px">
+          <div style="display: flex; align-items: center; gap: 10px">
+            <label for="in-x" style="font-size: 15px; width: 64px">Left / right</label>
+            <button type="button" aria-label="Move left 0.5pt" onClick="{{xDown}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 15px; cursor: pointer">←</button>
+            <input id="in-x" type="range" min="-60" max="60" step="0.5" value="{{selX}}" onInput="{{setX}}" style="flex: 1; min-width: 0">
+            <button type="button" aria-label="Move right 0.5pt" onClick="{{xUp}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 15px; cursor: pointer">→</button>
+            <span style="width: 44px; text-align: right; font-size: 13px; color: #8E8E93; font-variant-numeric: tabular-nums">{{selX}}pt</span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 10px">
+            <label for="in-y" style="font-size: 15px; width: 64px">Up / down</label>
+            <button type="button" aria-label="Move up 0.5pt" onClick="{{yDown}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 15px; cursor: pointer">↑</button>
+            <input id="in-y" type="range" min="-60" max="60" step="0.5" value="{{selY}}" onInput="{{setY}}" style="flex: 1; min-width: 0">
+            <button type="button" aria-label="Move down 0.5pt" onClick="{{yUp}}" style="width: 36px; height: 30px; border: 0; border-radius: 7px; background: #2C2C2E; color: #FFFFFF; font-size: 15px; cursor: pointer">↓</button>
+            <span style="width: 44px; text-align: right; font-size: 13px; color: #8E8E93; font-variant-numeric: tabular-nums">{{selY}}pt</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; align-items: center">
+            <span style="font-size: 12px; color: #8E8E93">Arrows move 0.5pt. The slider is for big moves.</span>
+            <button type="button" onClick="{{resetPos}}" style="background: none; border: 0; padding: 0; font: inherit; font-size: 13px; color: #0A84FF; cursor: pointer">Reset</button>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+
+    <div style="background: #1C1C1E; border-radius: 10px; overflow: hidden">
+      <button type="button" onClick="{{tgCard}}" aria-expanded="{{openCard}}" style="width: 100%; display: flex; justify-content: space-between; align-items: center; padding: 12px 14px; background: none; border: 0; font: inherit; font-size: 15px; font-weight: 600; color: #FFFFFF; cursor: pointer"><span>Whole card &amp; looks</span><span style="color: #8E8E93">{{chCard}}</span></button>
+      <sc-if value="{{openCard}}" hint-placeholder-val="{{ false }}">
+        <div style="display: flex; flex-direction: column; gap: 12px; padding: 0 14px 14px">
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <span style="font-size: 12px; color: #8E8E93">Looks: tap to restyle the whole card</span>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap">
+              <sc-for list="{{looks}}" as="lk" hint-placeholder-count="3">
+                <button type="button" onClick="{{lk.apply}}" style="display: flex; align-items: center; gap: 8px; background: #2C2C2E; border: {{lk.ring}}; border-radius: 10px; padding: 5px 10px 5px 5px; font: inherit; font-size: 13px; color: #FFFFFF; cursor: pointer">
+                  <span style="width: 24px; height: 28px; border-radius: 4px; background: {{lk.card}}; display: flex; flex-direction: column; justify-content: center"><span style="height: 8px; background: {{lk.band}}"></span></span>
+                  {{lk.name}}
+                </button>
+              </sc-for>
+              <button type="button" style="background: none; border: 1px dashed #48484A; border-radius: 10px; padding: 5px 12px; font: inherit; font-size: 13px; color: #0A84FF; cursor: pointer">+ Save as look</button>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; gap: 8px">
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #8E8E93"><span>Card background</span><span style="font-variant-numeric: tabular-nums">{{cardBg}}</span></div>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap">
+              <sc-for list="{{bgSwatches}}" as="s" hint-placeholder-count="10">
+                <button type="button" aria-label="{{s.hex}}" onClick="{{s.pick}}" style="width: 28px; height: 28px; border-radius: 50%; padding: 0; border: {{s.ring}}; background: {{s.hex}}; cursor: pointer"></button>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <div style="flex: none; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; padding: 10px 16px 30px; background: #0B0B0C; border-top: 0.5px solid #2C2C2E">
+    <button type="button" onClick="{{openConfirm}}" style="height: 46px; border: 0; border-radius: 12px; background: #1C1C1E; color: #0A84FF; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Apply to All 6</button>
+    <a href="Organizer.dc.html" style="height: 46px; border-radius: 12px; background: #0A84FF; color: #FFFFFF; font-size: 16px; font-weight: 600; text-decoration: none; display: flex; align-items: center; justify-content: center">{{saveLabel}}</a>
+  </div>
+
+  <sc-if value="{{confirming}}" hint-placeholder-val="{{ false }}">
+    <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.55); display: flex; flex-direction: column; justify-content: flex-end">
+      <div role="dialog" aria-label="Apply to all tickets" style="background: #1C1C1E; border-radius: 16px 16px 0 0; padding: 20px 16px 34px; display: flex; flex-direction: column; gap: 14px">
+        <div style="font-size: 17px; font-weight: 600">Apply to all 6 tickets?</div>
+        <div style="font-size: 13px; line-height: 18px; color: #8E8E93">Copies this ticket's text, labels, colors, sizes, positions and images onto every ticket in this take, replacing what they have now.</div>
+        <button type="button" onClick="{{toggleKeep}}" aria-pressed="{{keepSeats}}" style="display: flex; align-items: center; justify-content: space-between; gap: 10px; background: #2C2C2E; border: 0; border-radius: 10px; padding: 10px 12px; font: inherit; font-size: 15px; color: #FFFFFF; text-align: left; cursor: pointer">
+          <span>Keep each ticket's Section, Row and Seat</span>
+          <span style="width: 51px; height: 31px; flex: none; border-radius: 16px; background: {{keepSwitch}}; position: relative"><span style="position: absolute; top: 2px; left: {{keepKnob}}; width: 27px; height: 27px; border-radius: 50%; background: #FFFFFF"></span></span>
+        </button>
+        <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px">
+          <button type="button" onClick="{{cancelConfirm}}" style="height: 46px; border: 0; border-radius: 12px; background: #2C2C2E; color: #FFFFFF; font: inherit; font-size: 16px; cursor: pointer">Cancel</button>
+          <button type="button" onClick="{{applyAll}}" style="height: 46px; border: 0; border-radius: 12px; background: #0A84FF; color: #FFFFFF; font: inherit; font-size: 16px; font-weight: 600; cursor: pointer">Apply</button>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":393,"height":852}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    const base = {
+      brand: { name: 'Header logo', kind: 'image', value: 'passline', size: 23, role: 'value' },
+      time: { name: 'Time', kind: 'text', value: '7:00 PM', size: 12, role: 'label' },
+      date: { name: 'Date', kind: 'text', value: 'Nov 7, 2026', size: 25.5, role: 'value' },
+      band: { name: 'Band', kind: 'band' },
+      venue: { name: 'Venue', kind: 'text', value: 'HALCYON ARENA', size: 12, role: 'label' },
+      title: { name: 'Event title', kind: 'text', value: 'NOVA REYES - AFTERGLOW ARENA TOUR', size: 17, role: 'value' },
+      section: { name: 'Section', kind: 'field', label: 'SECTION', value: '114', size: 24 },
+      row: { name: 'Row', kind: 'field', label: 'ROW', value: '19', size: 24 },
+      seat: { name: 'Seat', kind: 'field', label: 'SEAT', value: '11', size: 24 },
+      entry: { name: 'Entry info', kind: 'field', label: 'ENTRY INFO', value: 'LOWER LEVEL', size: 22 },
+      type: { name: 'Ticket type', kind: 'field', label: 'TICKET TYPE', value: 'Card Member Presale', size: 22 },
+      icon: { name: 'App icon', kind: 'icon' },
+      footer: { name: 'Footer', kind: 'footer', value: 'EXPIRED', size: 12, role: 'footer' }
+    };
+    Object.keys(base).forEach((k) => { base[k].x = 0; base[k].y = 0; });
+    this.order = Object.keys(base);
+    this.lookDefs = {
+      dark: { name: 'Dark · blue band', bg: '#22262D', band: '#2D6BE0', label: '#4C8DF6', value: '#FFFFFF', footer: '#C7C7CC', footerMode: 'nfc', icon: true },
+      lav: { name: 'Lavender · black band', bg: '#E9CBFB', band: '#000000', label: '#1C1C1E', value: '#1C1C1E', footer: '#3A3A3C', footerMode: 'nfc', icon: false },
+      exp: { name: 'Dark · expired', bg: '#22262D', band: '#3A3F47', label: '#4C8DF6', value: '#FFFFFF', footer: '#FFFFFF', footerMode: 'text', icon: true }
+    };
+    this.state = Object.assign({ sel: 'title', open: 'content', refMode: 'wipe', refPct: 100, wipe: 50, dragging: false, swatchesOn: false, genDone: false, confirming: false, keepSeats: true, applied: false }, this.lookState('dark', base));
+  }
+  lookState(id, elsIn) {
+    const L = this.lookDefs[id];
+    const els = {};
+    Object.keys(elsIn).forEach((k) => {
+      const el = Object.assign({}, elsIn[k]);
+      if (el.kind === 'field') { el.color = L.value; el.labelColor = L.label; }
+      else if (el.role === 'label') el.color = L.label;
+      else if (el.role === 'footer') el.color = L.footer;
+      else el.color = L.value;
+      els[k] = el;
+    });
+    return { els, look: id, cardBg: L.bg, bandColor: L.band, footerMode: L.footerMode, icon: L.icon };
+  }
+  upd(k, patch) {
+    this.setState({ els: Object.assign({}, this.state.els, { [k]: Object.assign({}, this.state.els[k], patch) }), look: null });
+  }
+  renderVals() {
+    const s = this.state;
+    const els = s.els;
+    const cur = els[s.sel];
+    const e = {};
+    this.order.forEach((k) => {
+      const el = els[k];
+      e[k] = {
+        pick: () => this.setState({ sel: k }),
+        outline: s.sel === k ? '2px solid #0A84FF' : 'none',
+        move: 'translate(' + el.x + 'px,' + el.y + 'px)',
+        px: (el.size || 12) + 'px',
+        color: el.color, labelColor: el.labelColor, value: el.value, label: el.label
+      };
+    });
+    const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+    const idx = this.order.indexOf(s.sel);
+    const step = (d) => () => this.setState({ sel: this.order[(idx + d + this.order.length) % this.order.length] });
+    const hexes = ['#FFFFFF', '#C7C7CC', '#8E8E93', '#4C8DF6', '#2D6BE0', '#0068E8', '#1C1C1E', '#000000', '#22262D', '#E9CBFB', '#E0442D', '#1E9E5A'];
+    const isBand = cur.kind === 'band';
+    const isIcon = cur.kind === 'icon';
+    const colorNow = isBand ? s.bandColor : cur.color;
+    const swatches = hexes.map((hex) => ({
+      hex, ring: hex === colorNow ? '2px solid #0A84FF' : '1px solid #48484A',
+      pick: () => (isBand || isIcon ? this.setState({ bandColor: hex, look: null }) : this.upd(s.sel, { color: hex }))
+    }));
+    const labelSwatches = hexes.map((hex) => ({ hex, ring: hex === cur.labelColor ? '2px solid #0A84FF' : '1px solid #48484A', pick: () => this.upd(s.sel, { labelColor: hex }) }));
+    const bgSwatches = hexes.map((hex) => ({ hex, ring: hex === s.cardBg ? '2px solid #0A84FF' : '1px solid #48484A', pick: () => this.setState({ cardBg: hex, look: null }) }));
+    const looks = Object.keys(this.lookDefs).map((id) => {
+      const L = this.lookDefs[id];
+      return { name: L.name, card: L.bg, band: L.band, ring: s.look === id ? '1.5px solid #0A84FF' : '1.5px solid transparent', apply: () => this.setState(this.lookState(id, s.els)) };
+    });
+    const tg = (id) => () => this.setState({ open: s.open === id ? null : id });
+    const fBg = (f) => (s.footerMode === f ? '#636366' : 'transparent');
+    const wipe = s.refMode === 'wipe';
+    const hasSize = cur.size != null && !isBand && !isIcon && !(cur.kind === 'footer' && s.footerMode !== 'text');
+    const refHexes = ['#E9CBFB', '#000000', '#1C1C1E', '#3A3A3C', '#FFFFFF', '#E31B23', '#C9A6E6', '#5A4A66'];
+    const refSwatches = refHexes.map((hex) => ({
+      hex, ring: hex === colorNow ? '2px solid #0A84FF' : '1px solid #48484A',
+      pick: () => (isBand || isIcon ? this.setState({ bandColor: hex, look: null }) : this.upd(s.sel, { color: hex }))
+    }));
+    return {
+      e,
+      refSwatches, showRefSwatches: s.swatchesOn, genDone: s.genDone,
+      confirming: s.confirming, keepSeats: s.keepSeats,
+      keepSwitch: s.keepSeats ? '#30D158' : '#48484A', keepKnob: s.keepSeats ? '22px' : '2px',
+      saveLabel: s.applied ? 'Saved to all ✓' : 'Save Ticket',
+      openConfirm: () => this.setState({ confirming: true }),
+      cancelConfirm: () => this.setState({ confirming: false }),
+      toggleKeep: () => this.setState({ keepSeats: !s.keepSeats }),
+      applyAll: () => this.setState({ confirming: false, applied: true }),
+      extract: () => this.setState({ swatchesOn: true }),
+      generate: () => this.setState(Object.assign(this.lookState('lav', s.els), { look: null, swatchesOn: true, genDone: true })),
+      cardBg: s.cardBg, bandColor: s.bandColor,
+      iconBg: s.bandColor === '#000000' ? '#2D6BE0' : s.bandColor, iconOpacity: s.icon ? 1 : 0.15,
+      footerNfc: s.footerMode === 'nfc', footerText: s.footerMode === 'text',
+
+      refOn: s.refMode !== 'off', wipeOn: wipe,
+      refOpacity: s.refPct / 100,
+      refClip: wipe ? 'inset(0 ' + clamp((355 - (393 * s.wipe / 100 - 19)) / 355 * 100, 0, 100) + '% 0 0)' : 'none',
+      wipePct: Math.round(s.wipe), wipeLeft: s.wipe + '%',
+      refSliderLabel: s.refMode === 'off' ? 'Reference hidden' : (wipe ? 'Divider ' + Math.round(s.wipe) + '%' : 'Opacity ' + s.refPct + '%'),
+      refSliderVal: wipe ? Math.round(s.wipe) : s.refPct,
+      setRefSlider: (ev) => this.setState(wipe ? { wipe: Number(ev.target.value) } : { refPct: Number(ev.target.value) }),
+      mOverlayBg: s.refMode === 'overlay' ? '#636366' : 'transparent',
+      mWipeBg: wipe ? '#636366' : 'transparent',
+      mOffBg: s.refMode === 'off' ? '#636366' : 'transparent',
+      modeOverlay: () => this.setState({ refMode: 'overlay', refPct: s.refPct === 100 ? 50 : s.refPct }),
+      modeWipe: () => this.setState({ refMode: 'wipe', refPct: 100 }),
+      modeOff: () => this.setState({ refMode: 'off' }),
+      dragStart: (ev) => { if (ev.currentTarget.setPointerCapture) ev.currentTarget.setPointerCapture(ev.pointerId); this.setState({ dragging: true }); },
+      dragMove: (ev) => {
+        if (!this.state.dragging) return;
+        const box = ev.currentTarget.parentElement.getBoundingClientRect();
+        this.setState({ wipe: clamp((ev.clientX - box.left) / box.width * 100, 0, 100) });
+      },
+      dragEnd: () => this.setState({ dragging: false }),
+      wipeKey: (ev) => {
+        if (ev.key === 'ArrowLeft') this.setState({ wipe: clamp(s.wipe - 1, 0, 100) });
+        if (ev.key === 'ArrowRight') this.setState({ wipe: clamp(s.wipe + 1, 0, 100) });
+      },
+
+      selName: cur.name, selIndex: idx + 1, prevEl: step(-1), nextEl: step(1),
+
+      openContent: s.open === 'content', openStyle: s.open === 'style', openPos: s.open === 'pos', openCard: s.open === 'card',
+      chContent: s.open === 'content' ? '⌃' : '⌄', chStyle: s.open === 'style' ? '⌃' : '⌄', chPos: s.open === 'pos' ? '⌃' : '⌄', chCard: s.open === 'card' ? '⌃' : '⌄',
+      tgContent: tg('content'), tgStyle: tg('style'), tgPos: tg('pos'), tgCard: tg('card'),
+
+      isField: cur.kind === 'field', isFooter: cur.kind === 'footer', isIcon,
+      hasValue: cur.value != null && !(cur.kind === 'footer' && s.footerMode !== 'text'),
+      hasImage: cur.kind === 'image' || isBand || isIcon,
+      valueLabel: cur.kind === 'image' ? 'Text (when no image is set)' : (cur.kind === 'footer' ? 'Footer text' : 'Value'),
+      selValue: cur.value, selLabel: cur.label,
+      setValue: (ev) => this.upd(s.sel, { value: ev.target.value }),
+      setLabel: (ev) => this.upd(s.sel, { label: ev.target.value }),
+      fNfcBg: fBg('nfc'), fTextBg: fBg('text'), fNoneBg: fBg('none'),
+      footNfc: () => this.setState({ footerMode: 'nfc' }), footText: () => this.setState({ footerMode: 'text' }), footNone: () => this.setState({ footerMode: 'none' }),
+      iconOn: s.icon, iconSwitch: s.icon ? '#30D158' : '#48484A', iconKnob: s.icon ? '22px' : '2px',
+      toggleIcon: () => this.setState({ icon: !s.icon }),
+
+      colorTitle: isBand ? 'Band color' : (isIcon ? 'Icon color (matches band)' : (cur.kind === 'field' ? 'Value color' : 'Color')),
+      selColor: colorNow, selLabelColor: cur.labelColor,
+      swatches, labelSwatches, bgSwatches, looks,
+      hasSize, selSize: cur.size,
+      sizeUp: () => this.upd(s.sel, { size: clamp(cur.size + 0.5, 8, 60) }),
+      sizeDown: () => this.upd(s.sel, { size: clamp(cur.size - 0.5, 8, 60) }),
+      setSize: (ev) => this.upd(s.sel, { size: Number(ev.target.value) }),
+
+      selX: cur.x, selY: cur.y,
+      xUp: () => this.upd(s.sel, { x: clamp(cur.x + 0.5, -60, 60) }),
+      xDown: () => this.upd(s.sel, { x: clamp(cur.x - 0.5, -60, 60) }),
+      yUp: () => this.upd(s.sel, { y: clamp(cur.y + 0.5, -60, 60) }),
+      yDown: () => this.upd(s.sel, { y: clamp(cur.y - 0.5, -60, 60) }),
+      setX: (ev) => this.upd(s.sel, { x: Number(ev.target.value) }),
+      setY: (ev) => this.upd(s.sel, { y: Number(ev.target.value) }),
+      resetPos: () => this.upd(s.sel, { x: 0, y: 0 })
+    };
+  }
+}
+</script>
+</body>
+</html>

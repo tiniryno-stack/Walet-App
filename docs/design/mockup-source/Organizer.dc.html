@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Organizer — tickets and takes</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap">
+<style>
+body{margin:0;background:#000}
+a{color:#0A84FF}a:hover{color:#409CFF}
+</style>
+</helmet>
+<div style="width: 393px; min-height: 852px; box-sizing: border-box; background: #000000; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', Inter, system-ui, sans-serif; -webkit-font-smoothing: antialiased; padding: 62px 16px 34px; display: flex; flex-direction: column; gap: 22px">
+
+  <div style="display: flex; flex-direction: column; gap: 6px">
+    <div style="display: flex; justify-content: space-between; align-items: center; height: 44px">
+      <button type="button" style="background: none; border: 0; padding: 0; font: inherit; font-size: 17px; color: #0A84FF; cursor: pointer">Edit</button>
+      <button type="button" style="background: none; border: 0; padding: 0; font: inherit; font-size: 17px; font-weight: 600; color: #0A84FF; cursor: pointer">Done</button>
+    </div>
+    <h1 style="margin: 0; font-size: 34px; font-weight: 700; letter-spacing: 0.3px">Organizer</h1>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 7px">
+    <div style="font-size: 13px; color: #8E8E93; padding-left: 16px">CURRENT TAKE</div>
+    <div style="background: #1C1C1E; border-radius: 10px; display: flex; flex-direction: column">
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 0.5px solid #38383A">
+        <span style="font-size: 17px">Take 3 — arena entry</span>
+        <span style="font-size: 17px; color: #8E8E93">Switch ›</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 7px 16px; border-bottom: 0.5px solid #38383A">
+        <span style="font-size: 17px">Number of tickets</span>
+        <div style="display: flex; align-items: center; gap: 12px">
+          <span style="font-size: 17px; color: #8E8E93; font-variant-numeric: tabular-nums; min-width: 20px; text-align: right">{{count}}</span>
+          <div style="display: flex; background: #2C2C2E; border-radius: 8px; overflow: hidden">
+            <button type="button" aria-label="Fewer tickets" onClick="{{dec}}" style="width: 46px; height: 32px; background: none; border: 0; border-right: 0.5px solid #48484A; color: #FFFFFF; font-size: 20px; line-height: 1; cursor: pointer">−</button>
+            <button type="button" aria-label="More tickets" onClick="{{inc}}" style="width: 46px; height: 32px; background: none; border: 0; color: #FFFFFF; font-size: 20px; line-height: 1; cursor: pointer">+</button>
+          </div>
+        </div>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 11px 16px; border-bottom: 0.5px solid #38383A">
+        <span style="font-size: 17px">New tickets copy</span>
+        <span style="font-size: 17px; color: #8E8E93">Last ticket ›</span>
+      </div>
+      <div style="display: flex; align-items: center; justify-content: space-between; padding: 11px 16px">
+        <span style="font-size: 17px">Start on</span>
+        <span style="font-size: 17px; color: #8E8E93">Ticket 1 ›</span>
+      </div>
+    </div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 7px">
+    <div style="font-size: 13px; color: #8E8E93; padding-left: 16px">TICKETS</div>
+    <div style="background: #1C1C1E; border-radius: 10px; display: flex; flex-direction: column">
+      <sc-for list="{{tickets}}" as="t" hint-placeholder-count="4">
+        <a href="Builder.dc.html" style="display: flex; align-items: center; gap: 12px; padding: 10px 16px; border-bottom: 0.5px solid #38383A; text-decoration: none; color: #FFFFFF">
+          <span style="width: 28px; height: 28px; border-radius: 6px; background: {{t.color}}; display: flex; align-items: center; justify-content: center; font-family: Inter, sans-serif; font-weight: 800; font-style: italic; font-size: 16px; color: #FFFFFF">p</span>
+          <span style="flex: 1; min-width: 0; display: flex; flex-direction: column">
+            <span style="font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis">{{t.title}}</span>
+            <span style="font-size: 13px; color: #8E8E93">{{t.seat}}</span>
+          </span>
+          <svg width="16" height="12" viewBox="0 0 16 12" aria-hidden="true"><path d="M1 2 H15 M1 6 H15 M1 10 H15" stroke="#5A5A5E" stroke-width="1.6" stroke-linecap="round"></path></svg>
+        </a>
+      </sc-for>
+      <button type="button" style="display: flex; align-items: center; gap: 12px; padding: 12px 16px; background: none; border: 0; font: inherit; font-size: 17px; color: #0A84FF; text-align: left; cursor: pointer">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><circle cx="11" cy="11" r="10" fill="#0A84FF"></circle><path d="M11 6 V16 M6 11 H16" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round"></path></svg>
+        Add Ticket
+      </button>
+    </div>
+    <div style="font-size: 13px; color: #8E8E93; padding: 0 16px">Tap a ticket to open it in the Builder. Swipe a row to duplicate or delete. Drag ≡ to reorder.</div>
+  </div>
+
+  <div style="display: flex; flex-direction: column; gap: 7px">
+    <div style="font-size: 13px; color: #8E8E93; padding-left: 16px">TAKES &amp; SETUP</div>
+    <div style="background: #1C1C1E; border-radius: 10px; display: flex; flex-direction: column">
+      <button type="button" style="padding: 11px 16px; background: none; border: 0; border-bottom: 0.5px solid #38383A; font: inherit; font-size: 17px; color: #0A84FF; text-align: left; cursor: pointer">Save as New Take…</button>
+      <button type="button" style="padding: 11px 16px; background: none; border: 0; border-bottom: 0.5px solid #38383A; font: inherit; font-size: 17px; color: #0A84FF; text-align: left; cursor: pointer">Export JSON (Copy)</button>
+      <button type="button" style="padding: 11px 16px; background: none; border: 0; font: inherit; font-size: 17px; color: #0A84FF; text-align: left; cursor: pointer">Import JSON (Paste)</button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":393,"height":1060}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { count: 6 };
+  }
+  renderVals() {
+    const count = this.state.count;
+    const tickets = [];
+    for (let i = 0; i < count; i++) {
+      tickets.push({ title: 'NOVA REYES - AFTERGLOW ARENA TOUR', seat: 'Sec 114 · Row 19 · Seat ' + (11 + i), color: '#2D6BE0' });
+    }
+    return {
+      count,
+      tickets,
+      inc: () => this.setState({ count: Math.min(20, count + 1) }),
+      dec: () => this.setState({ count: Math.max(1, count - 1) })
+    };
+  }
+}
+</script>
+</body>
+</html>
